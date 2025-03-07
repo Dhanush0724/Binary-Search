@@ -1,0 +1,36 @@
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        # def ans(n):
+        #     total = 0
+        #     for num in piles:
+        #         total+=ceil(num/n)
+        #     return total
+
+        # low = 1
+        # high = max(piles)
+
+        # while low<=high:
+        #     mid = (low+high)//2
+        #     time = ans(mid)
+        #     if time <= h:
+        #         high = mid-1
+        #     else :
+        #         low = mid+1
+        # return low
+
+        def total_hours(speed):
+            
+            return sum(ceil(p/speed) for p in piles)
+
+        low = 1
+        high = max(piles)
+
+        while low<=high:
+            mid = (low+high)//2
+            
+            if total_hours(mid) <= h:
+                high = mid-1
+            else :
+                low = mid+1
+        return low
+        
